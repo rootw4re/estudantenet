@@ -336,15 +336,15 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
       _currentTime: function() {
         var monthNames = [
-          'January', 'February', 'March',
-          'April', 'May', 'June', 'July',
-          'August', 'September', 'October',
-          'November', 'December'
+          'Janeiro', 'Fevereiro', 'Março',
+          'Abril', 'Maio', 'Junho', 'Julho',
+          'Agosto', 'Setembro', 'Outubro',
+          'Novembro', 'Dezembro'
         ];
 
         var date = new Date();
 
-        return monthNames[date.getMonth()] + ' ' + date.getDate() + ', ' + date.getFullYear();
+        return  date.getDate() + ' de ' + monthNames[date.getMonth()] + ' de ' + date.getFullYear();
       },
 
       _toggleDrawer: function() {

@@ -40,18 +40,18 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     ul {
       padding: 0;
       list-style: none;
-      
+
     }
 
     .inline-block-center {
   	text-align: center;
-	
+
      }
 
     .centering {
 	margin-top: 30px;
     }
-    
+
     h3 > a{
 	font-weight: bold;
 	color: white;
@@ -82,13 +82,13 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
       .drawer-list a.iron-selected {
         font-weight: bold;
-	
+
       }
       .drawer-list a:hover {
         color: white;
 	opacity: 1;
       }
-      
+
      .date-line {
         text-align: center;
         font-size: 11px;
@@ -145,11 +145,11 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     <li class="centering">
 	<news-social-media></news-social-media>
     </li>
-  </ul>	
+  </ul>
 	<news-copyright>
 	</news-copyright>
 
-	
+
 
   </template>
 
@@ -172,17 +172,17 @@ Polymer({
         category: Object
    },
 
-      _currentTime: function() {
-        var monthNames = [
-          'January', 'February', 'March',
-          'April', 'May', 'June', 'July',
-          'August', 'September', 'October',
-          'November', 'December'
-        ];
+   _currentTime: function() {
+     var monthNames = [
+       'Janeiro', 'Fevereiro', 'Março',
+       'Abril', 'Maio', 'Junho', 'Julho',
+       'Agosto', 'Setembro', 'Outubro',
+       'Novembro', 'Dezembro'
+     ];
 
         var date = new Date();
 
-        return monthNames[date.getMonth()] + ' ' + date.getDate() + ', ' + date.getFullYear();
+        return  date.getDate() + ' de ' + monthNames[date.getMonth()] + ' de ' + date.getFullYear();
       },
 
       _computeAppHomeLabel: function(appTitle) {
