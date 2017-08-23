@@ -39,7 +39,7 @@
     "paper-styles": "PolymerElements/paper-styles#1 - 2",
     "paper-tabs": "PolymerElements/paper-tabs#1 - 2",
     "test-fixture": "PolymerElements/test-fixture#^3.0.0-rc.1",
-    "web-component-tester": "^4.0.0",
+    "web-component-tester": "^6.0.0",
     "webcomponentsjs": "webcomponents/webcomponentsjs#^1.0.0"
   },
   "variants": {
@@ -64,11 +64,11 @@
   "resolutions": {
     "webcomponentsjs": "^1.0.0"
   },
-  "_release": "9d5f1de5a7",
+  "_release": "1b55ec4fae",
   "_resolution": {
     "type": "branch",
     "branch": "master",
-    "commit": "9d5f1de5a7dafac5113d34f6cfa3d7bcf74014d7"
+    "commit": "1b55ec4faef30e3bad53f87cc5ed4dde439603d4"
   },
   "_source": "https://github.com/polymerelements/app-layout.git",
   "_target": "master",

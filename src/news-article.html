@@ -11,6 +11,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 <link rel="import" href="../bower_components/polymer/polymer.html">
 <link rel="import" href="../bower_components/app-route/app-route.html">
 <link rel="import" href="../bower_components/iron-icon/iron-icon.html">
+<link rel="import" href="../bower_components/google-youtube/google-youtube.html">
 
 <link rel="import" href="news-article-cover.html">
 <link rel="import" href="news-iframe.html">
@@ -179,13 +180,13 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
           <iron-icon icon="mail"></iron-icon> Email
         </a>
         <a href="#" class="share-link" aria-label="Share on social networks">
-          <iron-icon icon="share"></iron-icon> Share
+          <iron-icon icon="share"></iron-icon> Compartilhar
         </a>
         <news-side-list class="fade-in" items="[[_slice(category.items, 0, 3)]]">
-          Most Read
+          Mais Lidas
         </news-side-list>
         <news-side-list class="fade-in" featured items="[[_slice(category.items, 3, 9)]]">
-          Top Stories
+          Melhores Artigos
         </news-side-list>
       </aside>
     </div>

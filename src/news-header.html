@@ -9,15 +9,49 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 -->
 
 <link rel="import" href="../bower_components/polymer/polymer.html">
+<link rel="import" href="../bower_components/app-layout/app-grid/app-grid-style.html">
+<link rel="import" href="../bower_components/social-media-icons/social-media-icons.html">
 <link rel="import" href="../bower_components/app-layout/app-toolbar/app-toolbar.html">
 <link rel="import" href="../bower_components/iron-flex-layout/iron-flex-layout.html">
 <link rel="import" href="../bower_components/iron-selector/iron-selector.html">
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/webcomponentsjs/0.7.7/webcomponents-lite.min.js"></script>
 
 <dom-module id="news-header">
 
   <template>
 
-    <style>
+    <style include="app-grid-style">
+
+    :host {
+      --app-grid-columns: 4;
+      --app-grid-item-height: 25%;
+	--app-grid-expandible-item-columns: 2;
+        position: relative;
+        right: 0;
+        left: 0;
+	width: 100%;
+    }
+
+    /* Only the second and third item should expand */
+        .item:nth-child(2),
+	.item:nth-child(3) {
+            @apply --app-grid-expandible-item;
+        }
+
+    .inline-block-center {
+  	text-align: center;
+
+     }
+
+    .centering {
+	margin-top: 30px;
+    }
+
+    ul {
+      padding: 0;
+      list-style: none;
+    }
 
       paper-icon-button {
         --paper-icon-button-ink-color: var(--app-nav-text-color);
@@ -149,6 +183,9 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         :host([page=article]) header .date-line {
           visibility: hidden;
         }
+    .centering {
+	margin-top: 15px;
+    }
 
         .sticky-nav .logo,
         :host([page=article]) .sticky-nav .date-line,
@@ -177,6 +214,10 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
           margin-top: 40px;
           height: 45px;
         }
+
+    .centering {
+	margin-top: 20px;
+    }
 
         .mobile-toggle-drawer-btn {
           display: none;
@@ -248,6 +289,11 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       Header at the scroll top of the page.
     -->
     <header>
+  <ul class="app-grid">
+    <li class="centering inline-block-center">
+	<img src="../images/news-logo-marca.png">
+    </li>
+    <li class="item">
       <app-toolbar class="logo-toolbar">
         <paper-icon-button class="mobile-toggle-drawer-btn" icon="menu"
             on-click="_toggleDrawer" aria-label="Main navigation"></paper-icon-button>
@@ -258,6 +304,11 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       <div class="date-line" role="heading">
         [[category.title]] <span aria-hidden="true">&nbsp;&middot;&nbsp;</span> [[_currentTime()]]
       </div>
+    </li>
+	<li class="centering inline-block-center">
+		<news-social-media></news-social-media>
+    	</li>
+  </ul>
       <template is="dom-if" if="[[!smallScreen]]">
         <iron-selector role="navigation" class="menu-list" selected="[[category.name]]"
             attr-for-selected="name">
@@ -266,6 +317,8 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
           </template>
         </iron-selector>
       </template>
+
+
     </header>
 
     <!--
