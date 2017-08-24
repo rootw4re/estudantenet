@@ -24,34 +24,36 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     <style include="app-grid-style">
 
     :host {
-      --app-grid-columns: 4;
-      --app-grid-item-height: 25%;
-	--app-grid-expandible-item-columns: 2;
+      --app-grid-columns: 5;
+      --app-grid-item-height: 20%;
+      --app-grid-expandible-item-columns: 3;
         position: relative;
         right: 0;
         left: 0;
-	width: 100%;
+        width: 100%;
     }
 
     /* Only the second and third item should expand */
         .item:nth-child(2),
-	.item:nth-child(3) {
+        .item:nth-child(3),
+        .item:nth-child(4){
             @apply --app-grid-expandible-item;
         }
 
-    .inline-block-center {
-  	text-align: center;
 
-     }
 
-    .centering {
-	margin-top: 30px;
-    }
+      .inline-block-center {
+    	text-align: center;
+       }
 
-    ul {
-      padding: 0;
-      list-style: none;
-    }
+      .centering {
+  	     margin-top: 50px;
+      }
+
+      ul {
+        padding: 0;
+        list-style: none;
+      }
 
       paper-icon-button {
         --paper-icon-button-ink-color: var(--app-nav-text-color);
@@ -62,6 +64,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       .sticky-nav {
         z-index: 10;
       }
+
 
       .logo {
         text-align: center;
@@ -160,17 +163,23 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       }
 
       /* mobile */
-      @media (max-width: 767px) {
+      @media (max-width: 900px) {
         header {
           position: absolute;
           top: 0;
           left: 0;
           right: 0;
           color: var(--app-cover-text-color);
+          /*color: black;*/
+        }
+
+        .hidden-mobile {
+          visibility: hidden;
         }
 
         header .logo {
           margin-right: 40px;
+          margin-left: 30vw;
         }
 
         header .date-line {
@@ -179,13 +188,30 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
           border-bottom: var(--app-transparent-border-style);
         }
 
-        :host([page=article]) header .logo,
+        :host([page=article]) header {
+          color: black;
+          position: relative;
+          top: 0;
+          left: 0;
+          right: 0;
+          margin-bottom: 0vh;
+        }
+        :host([page=article]) header .logo {
+          visibility: visible;
+          margin-left: 0vw
+        }
         :host([page=article]) header .date-line {
+          visibility: visible;
+        }
+        :host([page=article]) header .hidden-mobile {
+          visibility: visible;
+        }
+        :host([page=article]) header .logo-left-right {
           visibility: hidden;
         }
-    .centering {
-	margin-top: 15px;
-    }
+        .centering {
+    	     margin-top: 20px;
+        }
 
         .sticky-nav .logo,
         :host([page=article]) .sticky-nav .date-line,
@@ -205,7 +231,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       }
 
       /* desktop */
-      @media (min-width: 768px) {
+      @media (min-width: 900px) {
         .logo {
           font-size: 39px;
         }
@@ -215,9 +241,14 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
           height: 45px;
         }
 
-    .centering {
-	margin-top: 20px;
-    }
+        .logo-left-right {
+          height: 56px;
+          width: 194px;
+        }
+
+          .centering {
+      	     margin-top: 40px;
+          }
 
         .mobile-toggle-drawer-btn {
           display: none;
@@ -289,28 +320,28 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       Header at the scroll top of the page.
     -->
     <header>
-  <ul class="app-grid">
-    <li class="centering inline-block-center">
-	<img src="../images/news-logo-marca.png">
-    </li>
-    <li class="item">
-      <app-toolbar class="logo-toolbar">
-        <paper-icon-button class="mobile-toggle-drawer-btn" icon="menu"
-            on-click="_toggleDrawer" aria-label="Main navigation"></paper-icon-button>
-        <div class="logo" main-title>
-          <a href="/" aria-label$="[[_computeAppHomeLabel(appTitle)]]">[[appTitle]]</a>
-        </div>
-      </app-toolbar>
-      <div class="date-line" role="heading">
-        [[category.title]] <span aria-hidden="true">&nbsp;&middot;&nbsp;</span> [[_currentTime()]]
-      </div>
-    </li>
-	<li class="centering inline-block-center">
-		<news-social-media></news-social-media>
-    	</li>
-  </ul>
+      <ul class="app-grid">
+        <li class="centering inline-block-center">
+    	     <img class="logo-left-right hidden-mobile" src="../images/news-logo-marca.png">
+        </li>
+        <li class="item">
+          <app-toolbar class="logo-toolbar">
+            <paper-icon-button class="mobile-toggle-drawer-btn" icon="menu"
+                on-click="_toggleDrawer" aria-label="Main navigation"></paper-icon-button>
+            <div class="logo" main-title>
+              <a href="/" aria-label$="[[_computeAppHomeLabel(appTitle)]]">[[appTitle]]</a>
+            </div>
+          </app-toolbar>
+          <div class="date-line" role="heading">
+            [[category.title]] <span aria-hidden="true">&nbsp;&middot;&nbsp;</span> [[_currentTime()]]
+          </div>
+        </li>
+    	<li class="centering inline-block-center">
+    		<news-social-media class="logo-left-right hidden-mobile"></news-social-media>
+        	</li>
+      </ul>
       <template is="dom-if" if="[[!smallScreen]]">
-        <iron-selector role="navigation" class="menu-list" selected="[[category.name]]"
+        <iron-selector role="navigation" class="menu-list hidden-mobile" selected="[[category.name]]"
             attr-for-selected="name">
           <template is="dom-repeat" items="[[categories]]" as="category" initial-count="9">
             <a name="[[category.name]]" href="/list/[[category.name]]">[[category.title]]</a>
