@@ -72,7 +72,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
     .logo a {
       font-weight: 600;
-      letter-spacing: 10px;
+      letter-spacing: 15px;
       /* To offset letter-spacing for the last character. */
       margin-right: -10px;
       text-decoration: none;
@@ -152,8 +152,8 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       color: var(--app-nav-text-color);
     }
 
-    /* mobile */
-    @media (max-width: 767px) {
+    /* mobile small*/
+    @media (max-width: 430px) {
       header {
         position: absolute;
         top: 0;
@@ -162,9 +162,18 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         color: var(--app-cover-text-color);
       }
 
+      .logo {
+        font-size: 15px;
+        font-weight: 400;
+      }
+      .logo a {
+        letter-spacing: 10px;
+      }
+
       header .logo {
-        margin-right: 40px;
-        margin-left: 10vw;
+        margin-right: 20px;
+        margin-left: 3vh;
+        font-weight: 400;
       }
 
       :host {
@@ -219,8 +228,83 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       }
     }
 
-    /* desktop */
-    @media (min-width: 768px) {
+    /*mobile*/
+    @media (min-width: 430px) and (max-width: 768px) {
+      header {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        color: var(--app-cover-text-color);
+      }
+
+      .logo {
+        font-size: 20px;
+        font-weight: 500;
+      }
+      .logo a {
+        letter-spacing: 10px;
+      }
+
+      header .logo {
+        margin-right: 30px;
+        margin-left: 10vh;
+      }
+
+      :host {
+        --app-grid-columns: 8;
+        --app-grid-item-height: 12.5%;
+        --app-grid-expandible-item-columns: 6;
+          position: relative;
+          right: 0;
+          left: 0;
+          width: 100%;
+      }
+
+      /* Only the second and third item should expand */
+          .item:nth-child(2),
+          .item:nth-child(3),
+          .item:nth-child(4),
+          .item:nth-child(5),
+          .item:nth-child(6),
+          .item:nth-child(7){
+              @apply --app-grid-expandible-item;
+          }
+
+      .hidden-mobile {
+        visibility: hidden;
+      }
+
+      header .date-line {
+        padding: 6px 0;
+        border-top: var(--app-transparent-border-style);
+        border-bottom: var(--app-transparent-border-style);
+      }
+
+      :host([page=article]) header .logo,
+      :host([page=article]) header .date-line {
+        visibility: hidden;
+      }
+
+      .sticky-nav .logo,
+      :host([page=article]) .sticky-nav .date-line,
+      :host([page=list]) .sticky-nav .article-headline {
+        display: none;
+      }
+
+      /* Can't use flex because we need a fixed width to clip text overflow. */
+      :host([page=article]) .sticky-nav-center {
+        width: calc(100% - 120px); /* 40px * 3 buttons */
+      }
+
+      /* Can't use flex because we need a fixed width to clip text overflow. */
+      :host([page=list]) .sticky-nav-center {
+        width: calc(100% - 80px); /* 40px * 2 buttons */
+      }
+    }
+
+    /* desktop small */
+    @media (min-width: 768px) and (max-width: 970px) {
       :host {
         --app-grid-columns: 8;
         --app-grid-item-height: 12.5%;
@@ -246,7 +330,112 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
           }
 
       .logo {
-        font-size: 20px;
+        font-size: 30px;
+      }
+
+      .logo-right {
+        width: 136px;
+        height: 40px;
+      }
+
+      .logo-toolbar {
+        margin-top: 40px;
+        height: 45px;
+      }
+
+      .mobile-toggle-drawer-btn {
+        display: none;
+      }
+
+      .sticky-nav-toolbar {
+        height: auto;
+      }
+
+      .sticky-nav {
+        height: auto;
+      }
+
+      :host([page=article]) .sticky-nav .sticky-nav-center {
+        margin-left: 40px;
+      }
+
+      .sticky-nav .logo a {
+        color: inherit;
+      }
+
+      .sticky-nav .logo {
+        font-size: 23px;
+        padding-top: 16px;
+      }
+
+      .sticky-nav .date-line {
+        padding: 4px 0 14px;
+      }
+
+      .sticky-nav .article-headline {
+        display: none;
+      }
+
+      .sticky-nav-center {
+        flex: 1;
+      }
+
+      .sticky-nav-menu {
+        @apply(--layout-vertical);
+        @apply(--layout-center);
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: var(--app-nav-background-color);
+        transition: transform 0.2s ease-in-out;
+        will-change: transform;
+        z-index: -1;
+        padding-top: 20px;
+        padding-bottom: 40px;
+      }
+
+      .grid-container {
+        -moz-column-count: 3;
+        -moz-column-gap: 82px;
+        column-count: 3;
+        column-gap: 82px;
+      }
+
+      .sticky-nav[threshold-triggered] .sticky-nav-menu[shown] {
+        transform: translate3d(0, 100%, 0);
+      }
+    }
+
+    /* desktop */
+    @media (min-width: 970px) {
+      :host {
+        --app-grid-columns: 8;
+        --app-grid-item-height: 12.5%;
+        --app-grid-expandible-item-columns: 6;
+          position: relative;
+          right: 0;
+          left: 0;
+          width: 100%;
+      }
+
+      /* Only the second and third item should expand */
+          .item:nth-child(2),
+          .item:nth-child(3),
+          .item:nth-child(4),
+          .item:nth-child(5),
+          .item:nth-child(6),
+          .item:nth-child(7){
+              @apply --app-grid-expandible-item;
+          }
+
+          .centering {
+             margin-top: 30px;
+          }
+
+      .logo {
+        font-size: 40px;
+        font-weight: 900;
       }
 
       .logo-right {
@@ -348,7 +537,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
           </div>
         </li>
     	<li class="centering ">
-    		<news-social-media class=" hidden-mobile"></news-social-media>
+    		<news-social-media class="hidden-mobile"></news-social-media>
         	</li>
       </ul>
       <template is="dom-if" if="[[!smallScreen]]">
