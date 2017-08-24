@@ -109,6 +109,13 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 	         .centering {
 		           margin-top: 10px;
     	     }
+           .logo {
+             width: 97px;
+             height: 28px;
+           }
+           .hidden-mobile {
+             visibility: hidden;
+           }
       }
 
       /* desktop */
@@ -119,7 +126,10 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 	        .centering {
 		          margin-top: 25px;
     	     }
-
+           .logo-right {
+             width: 136px;
+             height: 40px;
+           }
       }
 
     </style>
@@ -128,17 +138,19 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
   <ul class="app-grid inline-block-center">
     <li class="centering">
-	<iron-selector role="navigation" class="drawer-list" selected="[[category.name]]" attr-for-selected="name">
+	     <iron-selector role="navigation" class="drawer-list" selected="[[category.name]]" attr-for-selected="name">
         <template is="dom-repeat" items="[[categories]]" as="category" initial-count="9">
           <a name="[[category.name]]" href="/list/[[category.name]]">[[category.title]]</a>
         </template>
       </iron-selector>
     </li>
     <li class="centering">
-	<h3>
-		<a  href="/" aria-label$="[[_computeAppHomeLabel(appTitle)]]">[[appTitle]]</a>
-	</h3>
-      <div class="date-line" role="heading">
+	     <h3>
+		       <a  href="/" aria-label$="[[_computeAppHomeLabel(appTitle)]]">
+             <img class="logo" src="../images/news-logo-marca.png">
+           </a>
+	     </h3>
+      <div class="date-line hidden-mobile" role="heading">
         [[category.title]] <span aria-hidden="true">&nbsp;&middot;&nbsp;</span> [[_currentTime()]]
       </div>
     </li>
