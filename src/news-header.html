@@ -28,6 +28,19 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     text-align: center;
      }
 
+    h3 > a{
+    	font-weight: bold;
+    	color: white;
+    	opacity: 0.75;
+    	text-decoration: none;
+    }
+    h3 > a:hover{
+    	font-weight: bold;
+    	color: white;
+    	text-decoration: underline;
+    	opacity: 1;
+    }
+
     ul {
       padding: 0;
       list-style: none;
@@ -237,8 +250,8 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       }
 
       .logo-right {
-        width: 136px;
-        height: 40px;
+        width: 204px;
+        height: 60px;
       }
 
       .logo-toolbar {
@@ -318,7 +331,9 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     <header>
       <ul class="app-grid">
         <li class="centering ">
-    	     <img class="hidden-mobile logo-right" src="../images/news-logo-marca.png">
+           <h3><a  href="/" aria-label$="[[_computeAppHomeLabel(appTitle)]]">
+              <img class="hidden-mobile logo-right" src="../images/news-logo-marca.png">
+            </a></h3>
         </li>
         <li class="item">
           <app-toolbar class="logo-toolbar">
