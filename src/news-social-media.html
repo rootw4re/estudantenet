@@ -9,9 +9,16 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 -->
 
 <link rel="import" href="../bower_components/polymer/polymer.html">
-<link rel="import" href="../bower_components/social-media-icons/social-media-icons.html">
+<link rel="import" href="../bower_components/social-iconset/social-iconset.html">
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/webcomponentsjs/0.7.7/webcomponents-lite.min.js"></script>
+<!-- second try hover color -->
+<!-- <script language="javascript">
+$('#social').hover(
+       function(){ $(this).addClass('colorize') }//,
+      //  function(){ $(this).removeClass('hover') }
+)
+</script> -->
+
 
 
 <dom-module id="news-social-media">
@@ -28,43 +35,57 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     	text-decoration: none;
     	padding: 0 2% 0 2%;
     }
-
+    /*hover color icon implements after*/
+    /*iron-icon.colorize[icon="social-iconset:facebook"] path { fill: #3d539f; }*/
+    /*https://github.com/7Ds7/social-iconset/blob/master/social-iconset.html*/
 
     .inline-block-center {
   	text-align: center;
      }
 
-    social-media-icons {
-      size: 70;
-    }
-
 
       /* mobile */
       @media (max-width: 767px) {
+        /*. social-media-icons[icon^="social-iconset"] {
+          width: 30px;
+          height: 30px;
+        }*/
 
+        .social-media-icons {
+          width: 20px;
+          height: 20px;
+        }
       }
 
       /* desktop */
       @media (min-width: 768px) {
+        /*. social-media-icons[icon^="social-iconset"] {
+          width: 30px;
+          height: 30px;
+        }*/
 
+        .social-media-icons {
+          width: 30px;
+          height: 30px;
+        }
       }
 
     </style>
   <div style="margin-top: 15px">
 	<a target="_blank" class="" href="https://www.facebook.com/EstudanteNet-1889126324670307/">
-		<social-media-icons icon="facebook" size="20"></social-media-icons>
+    <iron-icon class="colorize  social-media-icons" icon="social-iconset:facebook"></iron-icon>
 	</a>
 	<a target="_blank" class="" href="https://www.youtube.com/channel/UCrnfb9cnmGUCZ-Pdfmy8y2Q">
-		<social-media-icons icon="youtube" size="20"></social-media-icons>
+    <iron-icon class="colorize   social-media-icons" icon="social-iconset:youtube"></iron-icon>
 	</a>
-	<a target="_blank" class="" href="estudantenetblog.wordpress.com">
-		<social-media-icons icon="tumblr" size="20"></social-media-icons>
+	<a target="_blank" class="" href="https://estudantenetblog.wordpress.com/">
+    <img class="social-media-icons" src="../images/wordpress-icon.png" size="24">
 	</a>
 	<a target="_blank" class="" href="https://twitter.com/EstudanteNet999">
-		<social-media-icons icon="twitter" size="20"></social-media-icons>
+		<iron-icon class="colorize   social-media-icons" icon="social-iconset:twitter"></iron-icon>
 	</a>
 	<a target="_blank" class="" href="https://plus.google.com/u/0/117253417739237854531">
-		<social-media-icons icon="googleplus" size="20"></social-media-icons>
+    <iron-icon class="colorize   social-media-icons" icon="social-iconset:googleplus"></iron-icon>
 	</a>
   </div>
 
