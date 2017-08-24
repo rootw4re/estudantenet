@@ -32,6 +32,8 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
       .container {
         display: flex;
+        text-align: justify;
+        text-justify: inter-word;
       }
 
       .container .fade-in {
@@ -150,6 +152,34 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
           -webkit-line-clamp: 7;
           -webkit-box-orient: vertical;
         }
+/*refatorar*/
+        .container {
+          display: block;
+        }
+
+        .preview-cover {
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          z-index: 1;
+        }
+
+        #content {
+          padding: 24px;
+        }
+
+        aside {
+          margin-left: auto;
+          width: auto;
+          padding: 0 24px;
+        }
+
+        .share-link {
+          display: none;
+        }
+
+/*refatorar*/
 
         :host-context(.fixed-viewport-height) h1 {
           font-size: calc(var(--viewport-height) * 0.06);
